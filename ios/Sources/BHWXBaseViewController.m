@@ -47,7 +47,7 @@
         CGFloat offY =  self.navigationController.navigationBar.frame.size.height + self.self.navigationController.navigationBar.frame.origin.y;
         CGFloat tabbarHeight = self.navigationController.viewControllers.count > 1 ? 0 : self.tabBarController.tabBar.frame.size.height;
         self.weexView.frame = CGRectMake(0, offY, self.view.frame.size.width, [UIScreen mainScreen].bounds.size.height - offY - tabbarHeight);
-        self.instance.frame =  self.weexView.frame;
+        self.instance.frame =  self.weexView.bounds;
     }
 }
 

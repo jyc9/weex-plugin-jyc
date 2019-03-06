@@ -12,6 +12,12 @@
 			<key>Impl</key>
 			<string>JYCWXImgLoaderDefaultImpl</string>
 		</dict>
+		<dict>
+			<key>protocol</key>
+			<string>WXNavigationProtocol</string>
+			<key>Impl</key>
+			<string>BHWXNavigationDefaultImpl</string>
+		</dict>
 	</array>
 	<key>components</key>
 	<array>
