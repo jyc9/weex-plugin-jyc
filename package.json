@@ -32,7 +32,6 @@
     "weex-jyc"
   ],
   "dependencies": {
-    "lottie-web": "^5.1.7",
     "phantom-limb": "0.0.1",
     "vue": "^2.5.13",
     "weex-vue-render": "^0.12.25"
