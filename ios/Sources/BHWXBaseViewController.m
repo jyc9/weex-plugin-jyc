@@ -131,6 +131,7 @@
     
     _instance.onFailed = ^(NSError *error) {
         if ([[error domain] isEqualToString:@"1"]) {
+#if DEBUG
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSMutableString *errMsg=[NSMutableString new];
                 [errMsg appendFormat:@"ErrorType:%@\n",[error domain]];
@@ -140,6 +141,7 @@
                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"render failed" message:errMsg delegate:weakSelf cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
                 [alertView show];
             });
+#endif
         }
     };
     
