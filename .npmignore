@@ -12,7 +12,8 @@ test
 .editorconfig
 .esdocrc
 .eslintrc
-
+.idea
 dist/
+configs
 playground/
 web/
