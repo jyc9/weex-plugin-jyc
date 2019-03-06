@@ -9,11 +9,8 @@
 #import "AppDelegate.h"
 #import "WXDemoViewController.h"
 #import "UIViewController+WXDemoNaviBar.h"
-#import "WXEventModule.h"
-#import "WXImgLoaderDefaultImpl.h"
 #import "DemoDefine.h"
 #import "WXScannerVC.h"
-#import "WXSyncTestModule.h"
 #import "UIView+UIThreadCheck.h"
 #import <WeexSDK/WeexSDK.h>
 #import <AVFoundation/AVFoundation.h>
@@ -86,18 +83,6 @@
 - (void)initWeexSDK
 {
     [BHShareKit initWeexSDK];
-//    [WXAppConfiguration setAppGroup:@"AliApp"];
-//    [WXAppConfiguration setAppName:@"WeexDemo"];
-//    [WXAppConfiguration setExternalUserAgent:@"ExternalUA"];
-//    
-//    [WXSDKEngine initSDKEnvironment];
-//    
-//    [WXSDKEngine registerHandler:[WXImgLoaderDefaultImpl new] withProtocol:@protocol(WXImgLoaderProtocol)];
-//    [WXSDKEngine registerHandler:[WXEventModule new] withProtocol:@protocol(WXEventModuleProtocol)];
-//    
-//    [WXSDKEngine registerComponent:@"select" withClass:NSClassFromString(@"WXSelectComponent")];
-//    [WXSDKEngine registerModule:@"event" withClass:[WXEventModule class]];
-//    [WXSDKEngine registerModule:@"syncTest" withClass:[WXSyncTestModule class]];
     
 #if !(TARGET_IPHONE_SIMULATOR)
     [self checkUpdate];

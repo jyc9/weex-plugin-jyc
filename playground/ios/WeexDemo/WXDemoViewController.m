@@ -14,7 +14,6 @@
 #import <WeexSDK/WXSDKManager.h>
 #import "UIViewController+WXDemoNaviBar.h"
 #import "DemoDefine.h"
-#import "WXImgLoaderDefaultImpl.h"
 
 
 @interface WXDemoViewController () <UIScrollViewDelegate, UIWebViewDelegate>
