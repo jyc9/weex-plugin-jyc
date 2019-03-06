@@ -14,6 +14,7 @@
 #import <WeexSDK/WeexSDK.h>
 #import <AVFoundation/AVFoundation.h>
 #import <ATSDK/ATManager.h>
+#import "WXDemoViewController.h"
 #import <WeexJyc/BHShareKit.h>
 #import <WeexJyc/BHWXBaseViewController.h>
 @interface AppDelegate ()
@@ -73,7 +74,7 @@
     if([url.scheme isEqualToString:@"wxpage"]) {
         newUrlStr = [newUrlStr stringByReplacingOccurrencesOfString:@"wxpage://" withString:@"http://"];
     }
-    UIViewController * viewController = [[BHWXBaseViewController alloc] initWithSourceURL:[NSURL URLWithString:newUrlStr]];
+    UIViewController * viewController = [[WXDemoViewController alloc] initWithSourceURL:[NSURL URLWithString:newUrlStr]];
     [(WXRootViewController*)self.window.rootViewController pushViewController:viewController animated:YES];
     return YES;
 }
@@ -103,7 +104,7 @@
 
 - (UIViewController *)demoController
 {
-    NSURL * url = nil;
+    NSURL *url = nil;
 #if DEBUG
     //If you are debugging in device , please change the host to current IP of your computer.
     url = [NSURL URLWithString:HOME_URL];
@@ -114,9 +115,8 @@
 #ifdef UITEST
     url = [NSURL URLWithString:UITEST_HOME_URL];
 #endif
-    UIViewController *demo = [[BHWXBaseViewController alloc] initWithSourceURL:url];
     
-    return demo;
+    return [[WXDemoViewController alloc] initWithSourceURL:url];
 }
 
 #pragma mark 
