@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "A weex plugin project",
   "author": "yaochenfeng <282696845@qq.com>",
+  "main": ".src/index.js",
   "scripts": {
     "start": "npm run serve",
     "build": "npm run clean && webpack --env.NODE_ENV=production",
