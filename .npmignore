@@ -1,10 +1,14 @@
 examples
+android
+docs
+examples
+ios
+WeexJyc.podspec
+
 coverage
 docs
 node_modules/*
-
 test
-
 .editorconfig
 .esdocrc
 .eslintrc
@@ -12,7 +16,3 @@ test
 dist/
 playground/
 web/
-
-# examples
-examples/native/
-examples/web/
