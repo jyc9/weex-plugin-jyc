@@ -18,7 +18,7 @@
 #import <WeexSDK/WeexSDK.h>
 #import <AVFoundation/AVFoundation.h>
 #import <ATSDK/ATManager.h>
-
+#import <WeexJyc/BHShareKit.h>
 @interface AppDelegate ()
 @end
 
@@ -85,18 +85,19 @@
 #pragma mark weex
 - (void)initWeexSDK
 {
-    [WXAppConfiguration setAppGroup:@"AliApp"];
-    [WXAppConfiguration setAppName:@"WeexDemo"];
-    [WXAppConfiguration setExternalUserAgent:@"ExternalUA"];
-    
-    [WXSDKEngine initSDKEnvironment];
-    
-    [WXSDKEngine registerHandler:[WXImgLoaderDefaultImpl new] withProtocol:@protocol(WXImgLoaderProtocol)];
-    [WXSDKEngine registerHandler:[WXEventModule new] withProtocol:@protocol(WXEventModuleProtocol)];
-    
-    [WXSDKEngine registerComponent:@"select" withClass:NSClassFromString(@"WXSelectComponent")];
-    [WXSDKEngine registerModule:@"event" withClass:[WXEventModule class]];
-    [WXSDKEngine registerModule:@"syncTest" withClass:[WXSyncTestModule class]];
+    [BHShareKit initWeexSDK];
+//    [WXAppConfiguration setAppGroup:@"AliApp"];
+//    [WXAppConfiguration setAppName:@"WeexDemo"];
+//    [WXAppConfiguration setExternalUserAgent:@"ExternalUA"];
+//    
+//    [WXSDKEngine initSDKEnvironment];
+//    
+//    [WXSDKEngine registerHandler:[WXImgLoaderDefaultImpl new] withProtocol:@protocol(WXImgLoaderProtocol)];
+//    [WXSDKEngine registerHandler:[WXEventModule new] withProtocol:@protocol(WXEventModuleProtocol)];
+//    
+//    [WXSDKEngine registerComponent:@"select" withClass:NSClassFromString(@"WXSelectComponent")];
+//    [WXSDKEngine registerModule:@"event" withClass:[WXEventModule class]];
+//    [WXSDKEngine registerModule:@"syncTest" withClass:[WXSyncTestModule class]];
     
 #if !(TARGET_IPHONE_SIMULATOR)
     [self checkUpdate];

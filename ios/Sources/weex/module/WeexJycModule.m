@@ -11,7 +11,7 @@
 
 @implementation WeexJycModule
 
-WX_PlUGIN_EXPORT_MODULE(weexJyc, WeexJycModule)
+//WX_PlUGIN_EXPORT_MODULE(weexJyc, WeexJycModule)
 WX_EXPORT_METHOD(@selector(show))
 
 /**

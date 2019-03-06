@@ -37,3 +37,4 @@ build/
 # examples
 examples/native/
 examples/web/
+playground/ios/WeexDemo.xcworkspace

@@ -22,10 +22,12 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.ios.deployment_target = "8.0"
 
-  s.source       = { :git => 'please input the url of your code in github', :tag => 'please input you github tag' }
-  s.source_files  = "ios/Sources/*.{h,m,mm}"
-  
+  s.source       = { :git => 'https://github.com/jyc9/weex-jyc.git', :tag => 'please input you github tag' }
+  s.source_files  = "ios/Sources/**/*.{h,m,mm}"
+  s.public_header_files = 'ios/Sources/*.h'
+  s.resource = "ios/jycKit.bundle"
   s.requires_arc = true
   s.dependency "WeexPluginLoader"
   s.dependency "WeexSDK"
+  s.dependency "SDWebImage", '3.7.5'
 end

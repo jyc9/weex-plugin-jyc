@@ -10,11 +10,7 @@
 
 #define CURRENT_IP [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"localServer-ip" ofType:@".txt"] encoding:NSUTF8StringEncoding error:nil]
 
-#if TARGET_IPHONE_SIMULATOR
-    #define DEMO_HOST @"127.0.0.1"
-#else
-    #define DEMO_HOST CURRENT_IP
-#endif
+#define DEMO_HOST CURRENT_IP
 
 #define DEMO_URL(path) [NSString stringWithFormat:@"http://%@:12580/%s", DEMO_HOST, #path]
 
