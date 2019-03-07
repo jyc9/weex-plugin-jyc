@@ -1,9 +1,9 @@
 {
   "name": "weex-plugin-jyc",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A weex plugin project",
   "author": "yaochenfeng <282696845@qq.com>",
-  "main": ".build/index.min.js",
+  "main": ".build/index.js",
   "scripts": {
     "start": "npm run serve",
     "build": "npm run clean && webpack --env.NODE_ENV=production",
@@ -17,15 +17,6 @@
   "web": {
     "name": "weex-plugin-jyc",
     "version": "0.1.1"
-  },
-  "android": {
-    "name": "WXLottie",
-    "dependency": "org.asialee.weex:weexplugin:1.0.2"
-  },
-  "ios": {
-    "type": "pod",
-    "name": "WXLottie",
-    "version": "1.0"
   },
   "keywords": [
     "weex",
