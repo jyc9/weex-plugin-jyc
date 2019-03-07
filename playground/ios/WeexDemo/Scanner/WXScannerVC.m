@@ -9,7 +9,7 @@
 #import "WXScannerVC.h"
 #import "AppDelegate.h"
 #import "UIViewController+WXDemoNaviBar.h"
-#import <WeexJyc/BHWXBaseViewController.h>
+#import <WeexPluginJyc/BHWXBaseViewController.h>
 #import <TBWXDevTool/WXDevTool.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <WeexSDK/WeexSDK.h>

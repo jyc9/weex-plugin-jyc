@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <SRWebSocket.h>
-#import <WeexJyc/BHWXBaseViewController.h>
+#import <WeexPluginJyc/BHWXBaseViewController.h>
 @interface WXDemoViewController : BHWXBaseViewController<SRWebSocketDelegate>
 
 @property (nonatomic, strong) NSString *script;

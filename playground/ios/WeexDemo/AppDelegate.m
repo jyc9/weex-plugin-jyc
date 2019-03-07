@@ -15,8 +15,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <ATSDK/ATManager.h>
 #import "WXDemoViewController.h"
-#import <WeexJyc/BHShareKit.h>
-#import <WeexJyc/BHWXBaseViewController.h>
+#import <WeexPluginJyc/BHShareKit.h>
 @interface AppDelegate ()
 @end
 
