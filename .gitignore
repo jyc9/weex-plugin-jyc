@@ -38,3 +38,4 @@ build/
 examples/native/
 examples/web/
 playground/ios/WeexDemo.xcworkspace
+package-lock.json

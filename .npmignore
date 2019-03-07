@@ -3,7 +3,6 @@ android
 docs
 examples
 ios
-WeexJyc.podspec
 
 coverage
 docs
@@ -17,3 +16,13 @@ dist/
 configs
 playground/
 web/
+
+ios/
+android/
+configs/
+build/
+.idea/
+# examples
+examples/native/
+examples/web/
+WeexPluginJyc.podspec
