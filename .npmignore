@@ -13,6 +13,11 @@ dist/
 playground/
 web/
 
+ios/
+android/
+configs/
+build/
+.idea/
 # examples
 examples/native/
 examples/web/

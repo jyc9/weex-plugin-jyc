@@ -1,19 +1,19 @@
 /* globals alert */
-const weexJyc = {
+const weexPluginJyc = {
   show () {
-    alert('Module weexJyc is created sucessfully ');
+    alert('Module weexPluginJyc is created sucessfully ');
   }
 };
 
 const meta = {
-  weexJyc: [{
+  weexPluginJyc: [{
     lowerCamelCaseName: 'show',
     args: []
   }]
 };
 
 function init (weex) {
-  weex.registerModule('weexJyc', weexJyc, meta);
+  weex.registerModule('weexPluginJyc', weexPluginJyc, meta);
 }
 
 export default {

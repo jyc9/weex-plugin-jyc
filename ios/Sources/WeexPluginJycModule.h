@@ -1,5 +1,5 @@
 //
-//  WeexJycModule.h
+//  WeexPluginJycModule.h
 //  WeexPluginTemp
 //
 //  Created by 齐山 on 17/3/14.
@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <WeexSDK/WeexSDK.h>
 
-@interface WeexJycModule : NSObject<WXModuleProtocol>
+@interface WeexPluginJycModule : NSObject<WXModuleProtocol>
 
 @end

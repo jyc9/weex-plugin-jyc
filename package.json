@@ -1,8 +1,9 @@
 {
-  "name": "weex-jyc",
-  "version": "1.0.0",
+  "name": "weex-plugin-jyc",
+  "version": "0.2.0",
   "description": "A weex project",
   "author": "yaochenfeng <282696845@qq.com>",
+  "main": "src/index.js",
   "scripts": {
     "start": "npm run serve",
     "build": "npm run clean && webpack --env.NODE_ENV=production",
@@ -14,8 +15,8 @@
     "prepublish": "npm run lint && npm run build"
   },
   "web": {
-    "name": "weex-plugin-lottie",
-    "version": "0.1.1"
+    "name": "weex-plugin-jyc",
+    "version": "0.2.0"
   },
   "android": {
     "name": "WXLottie",

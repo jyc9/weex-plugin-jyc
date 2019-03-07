@@ -1,4 +1,4 @@
-package org.weex.plugin.weexjyc;
+package org.weex.plugin.weexpluginjyc;
 
 import android.util.Log;
 import android.widget.Toast;
@@ -8,10 +8,10 @@ import com.taobao.weex.annotation.JSMethod;
 import com.taobao.weex.bridge.JSCallback;
 import com.taobao.weex.common.WXModule;
 
-@WeexModule(name = "weexJyc")
-public class WeexJycModule extends WXModule {
+@WeexModule(name = "weexPluginJyc")
+public class WeexPluginJycModule extends WXModule {
 
-    private static final String TAG = "WeexJycModule";
+    private static final String TAG = "WeexPluginJycModule";
 
     //sync ret example
     //TODO: Auto-generated method example
@@ -30,6 +30,6 @@ public class WeexJycModule extends WXModule {
     @JSMethod (uiThread = true)
     public void show() {
         Log.d(TAG, "Showing!!!");
-        Toast.makeText(mWXSDKInstance.getContext(),"Module weexJyc is created sucessfully ",Toast.LENGTH_SHORT).show();
+        Toast.makeText(mWXSDKInstance.getContext(),"Module weexPluginJyc is created sucessfully ",Toast.LENGTH_SHORT).show();
     }
 }
