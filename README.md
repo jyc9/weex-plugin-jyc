@@ -1,6 +1,6 @@
-# weex-plugin-lottie
+# weex-plugin-jyc
 
-This is a weex component extend by [lottie-web](https://github.com/airbnb/lottie-web).
+This is a weex module extend by jyc.
 
 Require `weex` version >= 0.16.0
 
@@ -10,9 +10,9 @@ Require `weex` version >= 0.16.0
 
 ```
 # with npm
-$ npm i weex-plugin-lottie --save
+$ npm i weex-plugin-jyc --save
 # with weex-toolkit
-$ weex plugin add weex-plugin-lottie
+$ weex plugin add weex-plugin-jyc
 ```
 
 ## Usage

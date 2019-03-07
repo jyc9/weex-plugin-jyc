@@ -1,18 +1,28 @@
 examples
+android
+docs
+examples
+ios
+
 coverage
 docs
 node_modules/*
-
 test
-
 .editorconfig
 .esdocrc
 .eslintrc
-
+.idea
 dist/
+configs
 playground/
 web/
 
+ios/
+android/
+configs/
+build/
+.idea/
 # examples
 examples/native/
 examples/web/
+WeexPluginJyc.podspec

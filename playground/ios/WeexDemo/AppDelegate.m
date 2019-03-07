@@ -7,18 +7,15 @@
  */
 
 #import "AppDelegate.h"
-#import "WXDemoViewController.h"
 #import "UIViewController+WXDemoNaviBar.h"
-#import "WXEventModule.h"
-#import "WXImgLoaderDefaultImpl.h"
 #import "DemoDefine.h"
 #import "WXScannerVC.h"
-#import "WXSyncTestModule.h"
 #import "UIView+UIThreadCheck.h"
 #import <WeexSDK/WeexSDK.h>
 #import <AVFoundation/AVFoundation.h>
 #import <ATSDK/ATManager.h>
-
+#import "WXDemoViewController.h"
+#import <WeexPluginJyc/BHShareKit.h>
 @interface AppDelegate ()
 @end
 
@@ -76,8 +73,7 @@
     if([url.scheme isEqualToString:@"wxpage"]) {
         newUrlStr = [newUrlStr stringByReplacingOccurrencesOfString:@"wxpage://" withString:@"http://"];
     }
-    UIViewController * viewController = [self demoController];
-    ((WXDemoViewController*)viewController).url = [NSURL URLWithString:newUrlStr];
+    UIViewController * viewController = [[WXDemoViewController alloc] initWithSourceURL:[NSURL URLWithString:newUrlStr]];
     [(WXRootViewController*)self.window.rootViewController pushViewController:viewController animated:YES];
     return YES;
 }
@@ -85,18 +81,7 @@
 #pragma mark weex
 - (void)initWeexSDK
 {
-    [WXAppConfiguration setAppGroup:@"AliApp"];
-    [WXAppConfiguration setAppName:@"WeexDemo"];
-    [WXAppConfiguration setExternalUserAgent:@"ExternalUA"];
-    
-    [WXSDKEngine initSDKEnvironment];
-    
-    [WXSDKEngine registerHandler:[WXImgLoaderDefaultImpl new] withProtocol:@protocol(WXImgLoaderProtocol)];
-    [WXSDKEngine registerHandler:[WXEventModule new] withProtocol:@protocol(WXEventModuleProtocol)];
-    
-    [WXSDKEngine registerComponent:@"select" withClass:NSClassFromString(@"WXSelectComponent")];
-    [WXSDKEngine registerModule:@"event" withClass:[WXEventModule class]];
-    [WXSDKEngine registerModule:@"syncTest" withClass:[WXSyncTestModule class]];
+    [BHShareKit initWeexSDK];
     
 #if !(TARGET_IPHONE_SIMULATOR)
     [self checkUpdate];
@@ -118,20 +103,19 @@
 
 - (UIViewController *)demoController
 {
-    UIViewController *demo = [[WXDemoViewController alloc] init];
-    
+    NSURL *url = nil;
 #if DEBUG
     //If you are debugging in device , please change the host to current IP of your computer.
-    ((WXDemoViewController *)demo).url = [NSURL URLWithString:HOME_URL];
+    url = [NSURL URLWithString:HOME_URL];
 #else
-    ((WXDemoViewController *)demo).url = [NSURL URLWithString:BUNDLE_URL];
+    url = [NSURL URLWithString:BUNDLE_URL];
 #endif
     
 #ifdef UITEST
-    ((WXDemoViewController *)demo).url = [NSURL URLWithString:UITEST_HOME_URL];
+    url = [NSURL URLWithString:UITEST_HOME_URL];
 #endif
     
-    return demo;
+    return [[WXDemoViewController alloc] initWithSourceURL:url];
 }
 
 #pragma mark 

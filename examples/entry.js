@@ -2,11 +2,11 @@ import Vue from 'vue';
 
 import weex from 'weex-vue-render';
 
-import WeexJyc from '../src/index';
+import WeexPluginJyc from '../src/index';
 
 weex.init(Vue);
 
-weex.install(WeexJyc)
+weex.install(WeexPluginJyc)
 
 const App = require('./index.vue');
 App.el = '#root';

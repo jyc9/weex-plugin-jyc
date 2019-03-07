@@ -9,7 +9,7 @@
 #import "WXScannerVC.h"
 #import "AppDelegate.h"
 #import "UIViewController+WXDemoNaviBar.h"
-#import "WXDemoViewController.h"
+#import <WeexPluginJyc/BHWXBaseViewController.h>
 #import <TBWXDevTool/WXDevTool.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <WeexSDK/WeexSDK.h>
@@ -77,6 +77,7 @@
     if (metadataObjects.count > 0) {
         AVMetadataMachineReadableCodeObject * metadataObject = [metadataObjects objectAtIndex : 0 ];
         [self openURL:metadataObject.stringValue];
+        [self recordScannerHistory:metadataObject.stringValue];
     }
 }
 
@@ -98,9 +99,8 @@
         return;
     }
     [self jsReplace:url];
-    WXDemoViewController * controller = [[WXDemoViewController alloc] init];
-    controller.url = url;
-    controller.source = @"scan";
+    BHWXBaseViewController * controller = [[BHWXBaseViewController alloc] initWithSourceURL:url];
+//    controller.source = @"scan";
     
     NSMutableDictionary *queryDict = [NSMutableDictionary new];
     if (WX_SYS_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")) {
@@ -112,11 +112,11 @@
     }else {
         queryDict = [self queryWithURL:url];
     }
-    NSString *wsport = queryDict[@"wsport"] ?: @"8082";
-    NSURL *socketURL = [NSURL URLWithString:[NSString stringWithFormat:@"ws://%@:%@", url.host, wsport]];
-    controller.hotReloadSocket = [[SRWebSocket alloc] initWithURL:socketURL protocols:@[@"echo-protocol"]];
-    controller.hotReloadSocket.delegate = controller;
-    [controller.hotReloadSocket open];
+//    NSString *wsport = queryDict[@"wsport"] ?: @"8082";
+//    NSURL *socketURL = [NSURL URLWithString:[NSString stringWithFormat:@"ws://%@:%@", url.host, wsport]];
+//    controller.hotReloadSocket = [[SRWebSocket alloc] initWithURL:socketURL protocols:@[@"echo-protocol"]];
+//    controller.hotReloadSocket.delegate = controller;
+//    [controller.hotReloadSocket open];
     
     [[self navigationController] pushViewController:controller animated:YES];
 }
@@ -188,9 +188,9 @@
         if ([[elts firstObject] isEqualToString:@"_wx_debug"]) {
             [WXDebugTool setDebug:YES];
             [WXSDKEngine connectDebugServer:[[elts lastObject]  stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-            if ([[[self.navigationController viewControllers] objectAtIndex:0] isKindOfClass:NSClassFromString(@"WXDemoViewController")]) {
-                WXDemoViewController * vc = (WXDemoViewController*)[[self.navigationController viewControllers] objectAtIndex:0];
-                [vc performSelector:NSSelectorFromString(@"loadRefreshCtl")];
+            if ([[[self.navigationController viewControllers] objectAtIndex:0] isKindOfClass:NSClassFromString(@"controller")]) {
+                BHWXBaseViewController * vc = (BHWXBaseViewController*)[[self.navigationController viewControllers] objectAtIndex:0];
+//                [vc performSelector:NSSelectorFromString(@"loadRefreshCtl")];
                 [self.navigationController popToViewController:vc animated:NO];
             }
             return YES;
@@ -198,7 +198,7 @@
             NSString *devToolURL = [[elts lastObject]  stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             [WXDevTool launchDevToolDebugWithUrl:devToolURL];
             if ([[[self.navigationController viewControllers] objectAtIndex:0] isKindOfClass:NSClassFromString(@"WXDemoViewController")]) {
-                WXDemoViewController * vc = (WXDemoViewController*)[[self.navigationController viewControllers] objectAtIndex:0];
+                BHWXBaseViewController * vc = (BHWXBaseViewController*)[[self.navigationController viewControllers] objectAtIndex:0];
                 [self.navigationController popToViewController:vc animated:NO];
             }
             
@@ -210,5 +210,19 @@
 }
 #pragma clang diagnostic pop
 
-
+- (void)recordScannerHistory:(NSString*)urlStr {
+    
+    NSMutableArray * scanner_history = [[[NSUserDefaults standardUserDefaults] objectForKey:WX_SCANNER_HISTORY] mutableCopy];
+    if (!scanner_history) {
+        scanner_history = [NSMutableArray new];
+    }
+    if ([scanner_history containsObject:urlStr]) {
+        [scanner_history removeObject:urlStr];
+    }
+    if ([scanner_history count] >= 7) {
+        [scanner_history removeLastObject];
+    }
+    [scanner_history insertObject:urlStr atIndex:0];
+    [[NSUserDefaults standardUserDefaults] setObject:scanner_history forKey:WX_SCANNER_HISTORY];
+}
 @end

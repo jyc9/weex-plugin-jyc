@@ -7,9 +7,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <WeexSDK/WXEventModuleProtocol.h>
-#import <WeexSDK/WXModuleProtocol.h>
+#import <WeexSDK/WXImgLoaderProtocol.h>
 
-@interface WXEventModule : NSObject <WXEventModuleProtocol, WXModuleProtocol>
-
+@interface JYCWXImgLoaderDefaultImpl : NSObject<WXImgLoaderProtocol, WXModuleProtocol>
 @end

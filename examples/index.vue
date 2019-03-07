@@ -41,14 +41,14 @@
 
 <script>
 
-	const weexJyc = weex.requireModule('weexJyc');
+	const weexPluginJyc = weex.requireModule('weexPluginJyc');
 	module.exports = {
 		data: {
 			logo: 'http://img1.vued.vanthink.cn/vued08aa73a9ab65dcbd360ec54659ada97c.png',
 		},
 		methods: {
 			createAction: function() {
-				weexJyc.show();
+				weexPluginJyc.show();
 			}
 		}
 	}

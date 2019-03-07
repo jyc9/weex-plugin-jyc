@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>weex-bundle</string>
+	<key>handlers</key>
+	<array>
+		<dict>
+			<key>protocol</key>
+			<string>WXImgLoaderProtocol</string>
+			<key>Impl</key>
+			<string>JYCWXImgLoaderDefaultImpl</string>
+		</dict>
+		<dict>
+			<key>protocol</key>
+			<string>WXNavigationProtocol</string>
+			<key>Impl</key>
+			<string>BHWXNavigationDefaultImpl</string>
+		</dict>
+	</array>
+	<key>components</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>select</string>
+			<key>Impl</key>
+			<string>WXSelectComponent</string>
+		</dict>
+	</array>
+	<key>modules</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>jyc</string>
+			<key>Impl</key>
+			<string>WeexJycModule</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -6,7 +6,7 @@
  * For the full copyright and license information,please view the LICENSE file in the root directory of this source tree.
  */
 
-#import "WXImgLoaderDefaultImpl.h"
+#import "JYCWXImgLoaderDefaultImpl.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 #define MIN_IMAGE_WIDTH 36
@@ -24,13 +24,13 @@
 #define WXDispatchQueueSetterSementics assign
 #endif
 
-@interface WXImgLoaderDefaultImpl()
+@interface JYCWXImgLoaderDefaultImpl()
 
 @property (WXDispatchQueueSetterSementics, nonatomic) dispatch_queue_t ioQueue;
 
 @end
 
-@implementation WXImgLoaderDefaultImpl
+@implementation JYCWXImgLoaderDefaultImpl
 
 #pragma mark -
 #pragma mark WXImgLoaderProtocol
