@@ -12,7 +12,6 @@
 @interface WXDemoViewController : BHWXBaseViewController<SRWebSocketDelegate>
 
 @property (nonatomic, strong) NSString *script;
-@property (nonatomic, strong) NSURL *url;
 
 @property (nonatomic, strong) SRWebSocket *hotReloadSocket;
 @property (nonatomic, strong) NSString *source;

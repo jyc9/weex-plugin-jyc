@@ -65,7 +65,7 @@
 
 - (void)setupRightBarItem
 {
-    if ([self.url.scheme isEqualToString:@"http"]) {
+    if ([self.sourceURL.scheme isEqualToString:@"http"] || [self.sourceURL.scheme isEqualToString:@"https"]) {
         [self loadRefreshCtl];
     }
 }

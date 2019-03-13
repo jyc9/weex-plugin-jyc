@@ -91,8 +91,7 @@
 {
     NSString *urlStr = _scanner_history[indexPath.row];
     if (urlStr) {
-        WXDemoViewController * demoVC = [WXDemoViewController new];
-        demoVC.url = [NSURL URLWithString:urlStr];
+        WXDemoViewController * demoVC = [[WXDemoViewController alloc] initWithSourceURL:[NSURL URLWithString:urlStr]];
         [self.navigationController pushViewController:demoVC animated:YES];
     }
 }
