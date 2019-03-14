@@ -37,18 +37,19 @@
 {
     [super viewWillLayoutSubviews];
     //调整weex大小
-    
-    if (self.navigationController.isNavigationBarHidden) {
-        CGRect frame = self.view.frame;
-        frame.origin.y = 0;
-        frame.size.height = [UIScreen mainScreen].bounds.size.height;
-        self.view.frame = frame;
-    }else{
-        CGFloat offY =  self.navigationController.navigationBar.frame.size.height + self.self.navigationController.navigationBar.frame.origin.y;
-        CGFloat tabbarHeight = self.navigationController.viewControllers.count > 1 ? 0 : self.tabBarController.tabBar.frame.size.height;
-        self.weexView.frame = CGRectMake(0, offY, self.view.frame.size.width, [UIScreen mainScreen].bounds.size.height - offY - tabbarHeight);
-        self.instance.frame =  self.weexView.bounds;
+    UIEdgeInsets safeArea = UIEdgeInsetsZero;
+    if (@available(iOS 11.0, *)) {
+        safeArea = self.view.safeAreaInsets;
+    } else {
+        // Fallback on earlier versions
     }
+    CGFloat weexHeight = self.view.bounds.size.height - safeArea.top - safeArea.bottom;
+    self.weexView.frame = CGRectMake(safeArea.left, safeArea.top, self.view.frame.size.width-safeArea.left-safeArea.right, weexHeight);
+}
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    self.instance.frame = self.weexView.bounds;
 }
 
 /**
