@@ -15,7 +15,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import <ATSDK/ATManager.h>
 #import "WXDemoViewController.h"
-#import <WeexPluginJyc/BHShareKit.h>
 @interface AppDelegate ()
 @end
 
@@ -81,7 +80,6 @@
 #pragma mark weex
 - (void)initWeexSDK
 {
-    [BHShareKit initWeexSDK];
     
 #if !(TARGET_IPHONE_SIMULATOR)
     [self checkUpdate];

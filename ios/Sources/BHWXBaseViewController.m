@@ -61,9 +61,6 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self _renderWithURL:_sourceURL];
-//    if ([self.navigationController isKindOfClass:[WXRootViewController class]]) {
-//        [self.navigationController setNavigationBarHidden:YES animated:YES];
-//    }
     
 }
 
