@@ -1,9 +1,10 @@
-source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/yaochenfeng/specs'  #我们自己的私有spec仓库的地址
+source 'https://github.com/CocoaPods/Specs.git'    #官方仓库的地址
 platform :ios, '8.0'
 #inhibit_all_warnings!
 
 def common
-    pod 'WeexSDK', '0.18.0'
+    pod 'WeexSDK'
     pod 'WXDevtool', '0.9.5'
     pod 'SocketRocket', '0.4.2'
     pod 'ATSDK-Weex', '0.0.1'
