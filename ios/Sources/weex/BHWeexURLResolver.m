@@ -6,6 +6,7 @@
 //
 
 #import "BHWeexURLResolver.h"
+#import "BHWXBaseViewController.h"
 #import <BeeKit/BeeKit.h>
 #import "JYCWeexSDK.h"
 @interface BHWeexURLResolver()<BHURLRouterHandlerProtocol>
@@ -16,6 +17,7 @@
     return [BHWeexURLResolver new];
 }
 -(id)handlerForRequest:(BHURLActionRequest *)request{
-    return nil;
+    BHWXBaseViewController *jyc = [[BHWXBaseViewController alloc] initWithSourceURL:request.url];
+    return [[BHURLActionResponse alloc] initWithViewController:jyc];
 }
 @end

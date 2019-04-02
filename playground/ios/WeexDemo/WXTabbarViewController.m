@@ -24,6 +24,12 @@
             [arrs addObject:[[UINavigationController alloc] initWithRootViewController:vc]];
         }
     }
+    UIViewController *tripvc = [[BHShareKit sharedKit] viewControllerForURL:[NSURL URLWithString:@"https://h5.m.taobao.com/trip/weex-ui/index.html?_wx_tpl=https%3A%2F%2Fh5.m.taobao.com%2Ftrip%2Fweex-ui%2Fdemo%2Findex.native-min.js"]];
+    if(tripvc){
+        tripvc.title = @"weex";
+        tripvc.tabBarItem.title = @"weexui";
+        [arrs addObject:[[UINavigationController alloc] initWithRootViewController:tripvc]];
+    }
     [self setViewControllers:arrs animated:false];
 }
 
