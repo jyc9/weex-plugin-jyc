@@ -55,10 +55,6 @@
         animated = NO;
     }
     NSString *url = param[@"url"];
-    
-    BHWXBaseViewController *vc = [[BHWXBaseViewController alloc]initWithSourceURL:[NSURL URLWithString:url]];
-    vc.hidesBottomBarWhenPushed = YES;
-    [container.navigationController pushViewController:vc animated:animated];
     [[BHShareKit sharedKit] openURLString:url source:container native:@{@"animated":@(animated)}];
     [self callback:block code:MSG_SUCCESS data:nil];
 }
