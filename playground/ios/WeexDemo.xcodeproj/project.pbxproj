@@ -271,7 +271,7 @@
 				775BEE781C1E8ECC008D1629 /* Frameworks */,
 				775BEE791C1E8ECC008D1629 /* Resources */,
 				C715566148067A7FFAB7797D /* [CP] Copy Pods Resources */,
-				872216B7DEDD846CAE2D4FB3 /* [CP] Embed Pods Frameworks */,
+				8BC9282AC1F0583EEEFDB2C6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -404,7 +404,7 @@
 			shellPath = /bin/sh;
 			shellScript = "DEST=$CONFIGURATION_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\n\nif [[ \"$CONFIGURATION\" = \"Debug\" ]]; then\nipconfig getifaddr en0 | awk '{printf(\"%s\",$0)}' > \"$DEST/localServer-ip.txt\"\nfi\n\nset -x\n\nif nc -w 5 -z localhost 12580 ; then\necho \"Port 12580 already in use, server is running\"\nelse\necho \"open start\"\n#open \"$SRCROOT/../../start\"\nfi\n\n";
 		};
-		872216B7DEDD846CAE2D4FB3 /* [CP] Embed Pods Frameworks */ = {
+		8BC9282AC1F0583EEEFDB2C6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (

@@ -8,6 +8,7 @@
 
 #import "BHWXNavigationDefaultImpl.h"
 #import <WeexSDK/WeexSDK.h>
+#import <BeeKit/BeeKit.h>
 #import "BHWXBaseViewController.h"
 @interface BHWXBarButton :UIButton
 
@@ -53,10 +54,12 @@
     if (obj && [obj isEqualToString:@"false"]) {
         animated = NO;
     }
+    NSString *url = param[@"url"];
     
-    BHWXBaseViewController *vc = [[BHWXBaseViewController alloc]initWithSourceURL:[NSURL URLWithString:param[@"url"]]];
+    BHWXBaseViewController *vc = [[BHWXBaseViewController alloc]initWithSourceURL:[NSURL URLWithString:url]];
     vc.hidesBottomBarWhenPushed = YES;
     [container.navigationController pushViewController:vc animated:animated];
+    [[BHShareKit sharedKit] openURLString:url source:container native:@{@"animated":@(animated)}];
     [self callback:block code:MSG_SUCCESS data:nil];
 }
 
