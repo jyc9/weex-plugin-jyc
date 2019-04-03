@@ -26,7 +26,6 @@
 		846FC8DB1E1B853600949E7D /* WXATViewHierarchyPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = DCABAFF21D029685001C8592 /* WXATViewHierarchyPlugin.m */; };
 		84D7CAC71CE3266C00D48D46 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7475ACA01CD8444A0044E96C /* libsqlite3.0.tbd */; };
 		8FF2FD7F2250FA420077D1EF /* WXTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF2FD7E2250FA420077D1EF /* WXTabbarViewController.m */; };
-		8FF9356F222F7B5500E789BA /* WXDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9356E222F7B5500E789BA /* WXDemoViewController.m */; };
 		8FF93572222FB39000E789BA /* WXScannerHistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF93571222FB39000E789BA /* WXScannerHistoryVC.m */; };
 		8FF93573222FB3B900E789BA /* WXScannerHistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF93571222FB39000E789BA /* WXScannerHistoryVC.m */; };
 		DC5E503E1D0D97130059F0EB /* weex.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5E503C1D0D97130059F0EB /* weex.png */; };
@@ -77,8 +76,6 @@
 		8FF2FD7D2250FA420077D1EF /* WXTabbarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXTabbarViewController.h; sourceTree = "<group>"; };
 		8FF2FD7E2250FA420077D1EF /* WXTabbarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXTabbarViewController.m; sourceTree = "<group>"; };
 		8FF2FD802250FBBB0077D1EF /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		8FF9356D222F7B5500E789BA /* WXDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXDemoViewController.h; sourceTree = "<group>"; };
-		8FF9356E222F7B5500E789BA /* WXDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXDemoViewController.m; sourceTree = "<group>"; };
 		8FF93570222FB39000E789BA /* WXScannerHistoryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXScannerHistoryVC.h; sourceTree = "<group>"; };
 		8FF93571222FB39000E789BA /* WXScannerHistoryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXScannerHistoryVC.m; sourceTree = "<group>"; };
 		9420131417A731ED089B0814 /* Pods-WeexDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeexDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeexDemo/Pods-WeexDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -230,8 +227,6 @@
 				747DF6661E2F176A005C53A8 /* UIView+UIThreadCheck.h */,
 				747DF6671E2F176A005C53A8 /* UIView+UIThreadCheck.m */,
 				7453E3641C9FA971001EB427 /* DemoDefine.h */,
-				8FF9356D222F7B5500E789BA /* WXDemoViewController.h */,
-				8FF9356E222F7B5500E789BA /* WXDemoViewController.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -489,7 +484,6 @@
 				2AE88A2C1C8544E6003329DE /* WXScannerVC.m in Sources */,
 				74CC79EB1C2B9E4700829368 /* UIViewController+WXDemoNaviBar.m in Sources */,
 				775BEE831C1E8ECC008D1629 /* AppDelegate.m in Sources */,
-				8FF9356F222F7B5500E789BA /* WXDemoViewController.m in Sources */,
 				DCABAFF41D029685001C8592 /* WXATViewHierarchyPlugin.m in Sources */,
 				775BEE801C1E8ECC008D1629 /* main.m in Sources */,
 				747DF6681E2F176A005C53A8 /* UIView+UIThreadCheck.m in Sources */,
