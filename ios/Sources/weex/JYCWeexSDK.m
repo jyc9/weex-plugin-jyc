@@ -7,6 +7,7 @@
 
 #import "JYCWeexSDK.h"
 #import <WeexSDK/WeexSDK.h>
+#import <BeeKit/BeeKit.h>
 @implementation JYCWeexSDK
 + (void)initWeexSDK{
     [WXSDKEngine initSDKEnvironment];
@@ -23,11 +24,12 @@
         NSArray *handlers = [weexDict mutableArrayValueForKey:@"handlers"];
         for (NSDictionary *item in handlers) {
             NSString *proName = item[@"protocol"];
-            NSString *proImplName = item[@"Impl"];
             Protocol *pro =  NSProtocolFromString(proName);
-            Class handle =  NSClassFromString(proImplName);
-            if([handle conformsToProtocol:pro]){
-             [WXSDKEngine registerHandler:[handle new] withProtocol:pro];
+            if(pro){
+                id obj = [[BHShareKit sharedKit] objectForSerivce:pro];
+                if(obj){
+                    [WXSDKEngine registerHandler:obj withProtocol:pro];
+                }
             }
         }
         NSArray *components = [weexDict mutableArrayValueForKey:@"components"];

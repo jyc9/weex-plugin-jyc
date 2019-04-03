@@ -22,6 +22,7 @@
 #import "WXScannerHistoryVC.h"
 #import "WXDefine.h"
 #import <objc/runtime.h>
+#import <WeexPluginJyc/BHWXBaseViewController.h>
 
 @implementation UIViewController (WXDemoNaviBar)
 
@@ -61,6 +62,13 @@
                                                                         style:UIBarButtonItemStylePlain
                                                                        target:self
                                                                        action:@selector(clearScannerHistory:)];
+        self.navigationItem.rightBarButtonItems = @[historyItem];
+    }
+    if([self isKindOfClass:[BHWXBaseViewController class]]) {
+        UIBarButtonItem *historyItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reload"]
+                                                                        style:UIBarButtonItemStylePlain
+                                                                       target:self
+                                                                       action:@selector(refreshWeex)];
         self.navigationItem.rightBarButtonItems = @[historyItem];
     }
 }

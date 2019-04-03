@@ -1,126 +1,48 @@
-/**
- * Created by Weex.
- * Copyright (c) 2016, Alibaba, Inc. All rights reserved.
- *
- * This source code is licensed under the Apache Licence 2.0.
- * For the full copyright and license information,please view the LICENSE file in the root directory of this source tree.
- */
+//
+//  WXDemoViewController.m
+//  WeexDemo
+//
+//  Created by 姚晨峰 on 2019/4/3.
+//  Copyright © 2019 taobao. All rights reserved.
+//
 
 #import "WXDemoViewController.h"
-#import <WeexSDK/WXSDKInstance.h>
-#import <WeexSDK/WXSDKEngine.h>
-#import <WeexSDK/WXUtility.h>
-#import <WeexSDK/WXDebugTool.h>
-#import <WeexSDK/WXSDKManager.h>
-#import "UIViewController+WXDemoNaviBar.h"
 #import "DemoDefine.h"
-
-
-@interface WXDemoViewController () <UIScrollViewDelegate, UIWebViewDelegate>
-
-@property (nonatomic, strong) NSArray *refreshList;
-@property (nonatomic, strong) NSArray *refreshList1;
-@property (nonatomic, strong) NSArray *refresh;
-@property (nonatomic) NSInteger count;
-@property (nonatomic, weak) id<UIScrollViewDelegate> originalDelegate;
+#import <WeexPluginJyc/BHWXBaseViewController.h>
+#import "UIViewController+WXDemoNaviBar.h"
+@interface WXDemoViewController ()<BHURLRouterHandlerProtocol>
 
 @end
 
 @implementation WXDemoViewController
-
-- (instancetype)init
-{
-    if (self = [super init]) {
-    }
-    
-    return self;
++(id)handlerForRequest:(BHURLActionRequest *)request{
+    NSURL *url = nil;
+#if DEBUG
+    //If you are debugging in device , please change the host to current IP of your computer.
+    url = [NSURL URLWithString:HOME_URL];
+#else
+    url = [NSURL URLWithString:BUNDLE_URL];
+#endif
+    BHWXBaseViewController *demo = [[BHWXBaseViewController alloc] initWithSourceURL:url];
+    demo.title = @"demo";
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [demo setupNaviBar];
+    });
+    return demo;
 }
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"weexdemo";
-    [self setupNaviBar];
-    [self setupRightBarItem];
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self.view setClipsToBounds:YES];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationRefreshInstance:) name:@"RefreshInstance" object:nil];
+    // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
-
-- (void)dealloc
-{
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-#pragma mark - refresh
-
-#pragma mark - UIBarButtonItems
-
-- (void)setupRightBarItem
-{
-    if ([self.sourceURL.scheme isEqualToString:@"http"] || [self.sourceURL.scheme isEqualToString:@"https"]) {
-        [self loadRefreshCtl];
-    }
-}
-
-- (void)loadRefreshCtl {
-    UIBarButtonItem *refreshButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reload"] style:UIBarButtonItemStylePlain target:self action:@selector(refreshWeex)];
-    refreshButtonItem.accessibilityHint = @"click to reload curent page";
-    self.navigationItem.rightBarButtonItem = refreshButtonItem;
-}
-
-#pragma mark - websocket
-- (void)webSocketDidOpen:(SRWebSocket *)webSocket
-{
-    
-}
-
-- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message
-{
-    if ([@"refresh" isEqualToString:message]) {
-        [self refreshWeex];
-    }
-}
-
-- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error
-{
-    
-}
-
-#pragma mark - localBundle
-#pragma mark - load local device bundle
-- (NSURL*)testURL:(NSString*)url
-{
-    NSRange range = [url rangeOfString:@"_wx_tpl"];
-    if (range.location != NSNotFound) {
-        NSString *tmp = [url substringFromIndex:range.location];
-        NSUInteger start = [tmp rangeOfString:@"="].location;
-        NSUInteger end = [tmp rangeOfString:@"&"].location;
-        ++start;
-        if (end == NSNotFound) {
-            end = [tmp length] - start;
-        }
-        else {
-            end = end - start;
-        }
-        NSRange subRange;
-        subRange.location = start;
-        subRange.length = end;
-        url = [tmp substringWithRange:subRange];
-    }
-    return [NSURL URLWithString:url];
-}
-
-#pragma mark - notification
-- (void)notificationRefreshInstance:(NSNotification *)notification {
-    [self refreshWeex];
-}
+*/
 
 @end

@@ -13,7 +13,7 @@
 #import <TBWXDevTool/WXDevTool.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <WeexSDK/WeexSDK.h>
-
+#import <BeeKit/BeeKit.h>
 @interface WXScannerVC ()
 
 @property (nonatomic, strong) AVCaptureSession * session;
@@ -99,7 +99,7 @@
         return;
     }
     [self jsReplace:url];
-    BHWXBaseViewController * controller = [[BHWXBaseViewController alloc] initWithSourceURL:url];
+    [[BHShareKit sharedKit] openURLString:transformURL source:self native:nil];
 //    controller.source = @"scan";
     
     NSMutableDictionary *queryDict = [NSMutableDictionary new];
@@ -112,13 +112,6 @@
     }else {
         queryDict = [self queryWithURL:url];
     }
-//    NSString *wsport = queryDict[@"wsport"] ?: @"8082";
-//    NSURL *socketURL = [NSURL URLWithString:[NSString stringWithFormat:@"ws://%@:%@", url.host, wsport]];
-//    controller.hotReloadSocket = [[SRWebSocket alloc] initWithURL:socketURL protocols:@[@"echo-protocol"]];
-//    controller.hotReloadSocket.delegate = controller;
-//    [controller.hotReloadSocket open];
-    
-    [[self navigationController] pushViewController:controller animated:YES];
 }
 
 - (NSMutableDictionary*)queryWithURL:(NSURL *)url {

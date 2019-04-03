@@ -49,7 +49,7 @@
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    self.instance.frame = self.weexView.bounds;
+    self.instance.frame = self.weexView.frame;
 }
 
 /**
@@ -107,7 +107,7 @@
     if([WXPrerenderManager isTaskReady:[self.sourceURL absoluteString]]){
         _instance = [WXPrerenderManager instanceFromUrl:self.sourceURL.absoluteString];
     }
-    _instance.frame = CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.height);
+    _instance.frame = self.view.frame;
     _instance.pageObject = self;
     _instance.pageName = sourceURL.absoluteString;
     _instance.viewController = self;

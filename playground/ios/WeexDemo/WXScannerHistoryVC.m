@@ -19,10 +19,9 @@
 
 #import "WXScannerHistoryVC.h"
 #import "DemoDefine.h"
-#import "WXDemoViewController.h"
 #import "UIViewController+WXDemoNaviBar.h"
 #import <CoreText/CoreText.h>
-
+#import <BeeKit/BeeKit.h>
 @interface WXScannerHistoryVC ()
 @property(nonatomic)NSMutableArray * scanner_history;
 @property(nonatomic)UIImageView * qrCodeImageView;
@@ -91,8 +90,7 @@
 {
     NSString *urlStr = _scanner_history[indexPath.row];
     if (urlStr) {
-        WXDemoViewController * demoVC = [[WXDemoViewController alloc] initWithSourceURL:[NSURL URLWithString:urlStr]];
-        [self.navigationController pushViewController:demoVC animated:YES];
+        [[BHShareKit sharedKit] openURLString:urlStr source:self native:nil];
     }
 }
 

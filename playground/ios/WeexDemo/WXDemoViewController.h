@@ -1,20 +1,17 @@
-/**
- * Created by Weex.
- * Copyright (c) 2016, Alibaba, Inc. All rights reserved.
- *
- * This source code is licensed under the Apache Licence 2.0.
- * For the full copyright and license information,please view the LICENSE file in the root directory of this source tree.
- */
+//
+//  WXDemoViewController.h
+//  WeexDemo
+//
+//  Created by 姚晨峰 on 2019/4/3.
+//  Copyright © 2019 taobao. All rights reserved.
+//
 
 #import <UIKit/UIKit.h>
-#import <SRWebSocket.h>
-#import <WeexPluginJyc/BHWXBaseViewController.h>
-@interface WXDemoViewController : BHWXBaseViewController<SRWebSocketDelegate>
 
-@property (nonatomic, strong) NSString *script;
+NS_ASSUME_NONNULL_BEGIN
 
-@property (nonatomic, strong) SRWebSocket *hotReloadSocket;
-@property (nonatomic, strong) NSString *source;
+@interface WXDemoViewController : UIViewController
 
 @end
 
+NS_ASSUME_NONNULL_END
