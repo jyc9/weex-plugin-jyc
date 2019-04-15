@@ -6,7 +6,20 @@
 //
 
 #import "BHWeexURLActionRequestMiddleware.h"
-
+#import <BeeKit/BeeKit.h>
+#import "BHWXBaseViewController.h"
+#import "JYCWeexSDK.h"
+@interface BHWeexURLActionRequestMiddleware()<BHURLActionRequestMiddleware>
+@end
 @implementation BHWeexURLActionRequestMiddleware
-
++(void)initialize{
+     [JYCWeexSDK initWeexSDK];
+}
+-(BHURLActionResponse *)processURLActionRequest:(BHURLActionRequest *)request{
+    if(request.query[@"_wx_tpl"]){
+        BHWXBaseViewController *jyc = [[BHWXBaseViewController alloc] initWithSourceURL:request.url];
+        return [[BHURLActionResponse alloc] initWithViewController:jyc];
+    }
+    return nil;
+}
 @end

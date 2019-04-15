@@ -10,6 +10,13 @@
 #import <BeeKit/BeeKit.h>
 @implementation JYCWeexSDK
 + (void)initWeexSDK{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self initWeexSDK_private];
+    });
+    
+}
++(void)initWeexSDK_private{
     [WXSDKEngine initSDKEnvironment];
     //主程序中的weex自主配置
     NSString *configFile = [[NSBundle mainBundle] pathForResource:@"weexSDK" ofType:@"plist"];
