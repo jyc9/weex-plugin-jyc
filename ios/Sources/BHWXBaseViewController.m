@@ -20,7 +20,7 @@
 {
     if ((self = [super init])) {
         self.oriURL = sourceURL;
-        self.sourceURL = [self testURL:sourceURL.absoluteString];
+        self.sourceURL = [self testURL:sourceURL];
         
         [self _addObservers];
     }
@@ -158,27 +158,40 @@
         return;
     }
 }
-- (NSURL*)testURL:(NSString*)url
+- (NSURL*)testURL:(NSURL*)url
 {
-    NSRange range = [url rangeOfString:@"_wx_tpl"];
+    NSString *wx_tpl = url.absoluteString;
+    NSRange range = [url.absoluteString rangeOfString:@"_wx_tpl"];
     if (range.location != NSNotFound) {
-        NSString *tmp = [url substringFromIndex:range.location];
-        NSUInteger start = [tmp rangeOfString:@"="].location;
-        NSUInteger end = [tmp rangeOfString:@"&"].location;
-        ++start;
-        if (end == NSNotFound) {
-            end = [tmp length] - start;
+        NSCharacterSet* delimiterSet = [NSCharacterSet characterSetWithCharactersInString:@"&"];
+        NSMutableDictionary* pairs = [NSMutableDictionary dictionary];
+        NSScanner* scanner = [[NSScanner alloc] initWithString:url.query ?: @""];
+        while (![scanner isAtEnd]) {
+            NSString* pairString = nil;
+            [scanner scanUpToCharactersFromSet:delimiterSet intoString:&pairString];
+            [scanner scanCharactersFromSet:delimiterSet intoString:NULL];
+            NSArray* kvPair = [pairString componentsSeparatedByString:@"="];
+            if (kvPair.count == 2) {
+                NSString* key = [kvPair objectAtIndex:0];
+                NSString* value = [kvPair objectAtIndex:1];
+                if([key isEqualToString:@"_wx_tpl"]){
+                    wx_tpl = [value stringByRemovingPercentEncoding];
+                }else{
+                    [pairs setObject:value forKey:key];
+                }
+            }
         }
-        else {
-            end = end - start;
+        NSArray<NSString *> *keys = pairs.allKeys;
+        for (int i = 0; i<keys.count; i++) {
+            if (i == 0) {
+                wx_tpl = [wx_tpl stringByAppendingString:[NSString stringWithFormat:@"?%@=%@",keys[i],pairs[keys[i]]]];
+            }else{
+                wx_tpl = [wx_tpl stringByAppendingString:[NSString stringWithFormat:@"&%@=%@",keys[i],pairs[keys[i]]]];
+            }
         }
-        NSRange subRange;
-        subRange.location = start;
-        subRange.length = end;
-        url = [tmp substringWithRange:subRange];
-        url = [url stringByRemovingPercentEncoding];
+        
     }
-    return [NSURL URLWithString:url];
+    return [NSURL URLWithString:wx_tpl];
 }
 
 - (void)_updateInstanceState:(WXState)state
