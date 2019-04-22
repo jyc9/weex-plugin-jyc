@@ -34,7 +34,7 @@
 			<key>name</key>
 			<string>jyc</string>
 			<key>Impl</key>
-			<string>WeexJycModule</string>
+			<string>WeexPluginJycModule</string>
 		</dict>
 	</array>
 </dict>
