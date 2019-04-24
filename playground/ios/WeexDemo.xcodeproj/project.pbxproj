@@ -25,6 +25,7 @@
 		84361D5B1CA10F8E00F43825 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 775BEE8A1C1E8ECC008D1629 /* Assets.xcassets */; };
 		846FC8DB1E1B853600949E7D /* WXATViewHierarchyPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = DCABAFF21D029685001C8592 /* WXATViewHierarchyPlugin.m */; };
 		84D7CAC71CE3266C00D48D46 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7475ACA01CD8444A0044E96C /* libsqlite3.0.tbd */; };
+		8F682621226FFE1B007B7886 /* MainConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F682620226FFE1B007B7886 /* MainConfig.plist */; };
 		8F76D8022254513E000CA6F2 /* demo_bundle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F76D8012254513E000CA6F2 /* demo_bundle.plist */; };
 		8F76D80522545227000CA6F2 /* WXDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F76D80422545227000CA6F2 /* WXDemoViewController.m */; };
 		8FF2FD7F2250FA420077D1EF /* WXTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF2FD7E2250FA420077D1EF /* WXTabbarViewController.m */; };
@@ -75,6 +76,7 @@
 		775BEE981C1E8ECC008D1629 /* WeexDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeexDemoTests.m; sourceTree = "<group>"; };
 		775BEE9A1C1E8ECC008D1629 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84361D751CA10F8E00F43825 /* WeexUITestDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeexUITestDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F682620226FFE1B007B7886 /* MainConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MainConfig.plist; sourceTree = "<group>"; };
 		8F76D8012254513E000CA6F2 /* demo_bundle.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = demo_bundle.plist; sourceTree = "<group>"; };
 		8F76D80322545227000CA6F2 /* WXDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXDemoViewController.h; sourceTree = "<group>"; };
 		8F76D80422545227000CA6F2 /* WXDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXDemoViewController.m; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 		775BEE7E1C1E8ECC008D1629 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8F682620226FFE1B007B7886 /* MainConfig.plist */,
 				8F76D8012254513E000CA6F2 /* demo_bundle.plist */,
 				775BEE7F1C1E8ECC008D1629 /* main.m */,
 			);
@@ -366,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC5E503E1D0D97130059F0EB /* weex.png in Resources */,
+				8F682621226FFE1B007B7886 /* MainConfig.plist in Resources */,
 				8F76D8022254513E000CA6F2 /* demo_bundle.plist in Resources */,
 				DC5E503F1D0D97130059F0EB /* weex@2x.png in Resources */,
 				DCD286E01CF491AC00C601CA /* weex-icon.png in Resources */,

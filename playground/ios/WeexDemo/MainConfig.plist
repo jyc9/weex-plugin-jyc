@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>url_action_request_middleware_list</key>
+	<array>
+		<dict>
+			<key>frameworkName</key>
+			<string>beeApp</string>
+			<key>middleware</key>
+			<string>#LoginRequestMiddleware</string>
+			<key>desc</key>
+			<string>需要login判断</string>
+		</dict>
+		<dict>
+			<key>middleware</key>
+			<string>#BHWeexURLActionRequestMiddleware</string>
+			<key>desc</key>
+			<string>weex 处理middle</string>
+		</dict>
+	</array>
+	<key>url_action_response_middleware_list</key>
+	<array>
+		<dict>
+			<key>frameworkName</key>
+			<string>beeApp</string>
+			<key>middleware</key>
+			<string>#ExceptionResponseMiddleware</string>
+			<key>desc</key>
+			<string>最后的异常流程，如进入webview</string>
+		</dict>
+	</array>
+</dict>
+</plist>
