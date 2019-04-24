@@ -25,8 +25,8 @@
         }
     }
     NSString *bundlejs = [NSString stringWithFormat:@"file://%@/bundlejs/dist/pages/index.js?wh_weex=true",[NSBundle mainBundle].bundlePath];
-    NSURL *home = [NSURL URLWithString:bundlejs];
-    {
+    if([[NSFileManager defaultManager] fileExistsAtPath:bundlejs]){
+        NSURL *home = [NSURL URLWithString:bundlejs];
         UIViewController *tripvc = [[BHShareKit sharedKit] viewControllerForURL:home];
         if(tripvc){
             tripvc.title = @"home";
