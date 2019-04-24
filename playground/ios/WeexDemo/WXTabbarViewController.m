@@ -7,7 +7,7 @@
 //
 
 #import "WXTabbarViewController.h"
-#import <WeexPluginJyc/BHNavigationController.h>
+#import <BeeKit/BHNavigationController.h>
 @interface WXTabbarViewController ()
 
 @end
@@ -24,7 +24,7 @@
             [arrs addObject:[[BHNavigationController alloc] initWithRootViewController:vc]];
         }
     }
-    NSString *bundlejs = [NSString stringWithFormat:@"file://%@/bundlejs/dist/pages/index.js?wh_weex=true",[NSBundle mainBundle].bundlePath];
+    NSString *bundlejs = [NSString stringWithFormat:@"file://%@/bundlejs/dist/pages/index.js?_wh_weex=true",[NSBundle mainBundle].bundlePath];
     if([[NSFileManager defaultManager] fileExistsAtPath:bundlejs]){
         NSURL *home = [NSURL URLWithString:bundlejs];
         UIViewController *tripvc = [[BHShareKit sharedKit] viewControllerForURL:home];

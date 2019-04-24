@@ -403,19 +403,13 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-WeexDemo/Pods-WeexDemo-frameworks.sh",
 				"${PODS_ROOT}/BeeKit/Carthage/Build/iOS/BeeKit.framework",
-				"${PODS_ROOT}/BeeKit/Carthage/Build/iOS/BeeKit.framework.dSYM",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BeeKit.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/BeeKit.framework.dSYM",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

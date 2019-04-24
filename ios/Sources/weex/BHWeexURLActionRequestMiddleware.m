@@ -16,7 +16,7 @@
      [JYCWeexSDK initWeexSDK];
 }
 -(BHURLActionResponse *)processURLActionRequest:(BHURLActionRequest *)request{
-    if(request.query[@"_wx_tpl"] || [request.query[@"wh_weex"] isEqualToString:@"true"]){
+    if(request.query[@"_wx_tpl"] || [request.query[@"_wh_weex"] isEqualToString:@"true"]){
         BHWXBaseViewController *jyc = [[BHWXBaseViewController alloc] initWithSourceURL:request.url];
         return [[BHURLActionResponse alloc] initWithViewController:jyc];
     }
