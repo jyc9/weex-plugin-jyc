@@ -42,6 +42,7 @@
         safeArea = self.view.safeAreaInsets;
     } else {
         // Fallback on earlier versions
+        safeArea = UIEdgeInsetsMake(self.navigationController.navigationBar.isHidden ? 20 : 64, 0, self.tabBarController.tabBar.isHidden ? 0 : 44, 0);
     }
     CGFloat weexHeight = self.view.bounds.size.height - safeArea.top - safeArea.bottom;
     self.weexView.frame = CGRectMake(safeArea.left, safeArea.top, self.view.frame.size.width-safeArea.left-safeArea.right, weexHeight);
